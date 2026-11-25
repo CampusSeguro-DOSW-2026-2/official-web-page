@@ -73,3 +73,8 @@ build/
 !**/src/test/**/build/
 
 .opencode
+# Node and Vite
+node_modules
+dist
+*.local
+npm-debug.log*
