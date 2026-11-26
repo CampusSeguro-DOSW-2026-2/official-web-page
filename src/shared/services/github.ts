@@ -200,6 +200,19 @@ export function fetchFileText(path: string): Promise<string> {
   return request;
 }
 
+// draw.io exports declare both color schemes, so in dark mode the text turns white over transparent cells
+const ADAPTIVE_COLOR_SCHEME = /color-scheme:\s*light\s+dark/g;
+
+/**
+ * Forces an SVG to use its light colors, the ones its authors designed it with, whatever the
+ * color scheme of the visitor's browser or operating system
+ * @param svg SVG source code
+ * @returns the SVG source code with only the light color scheme
+ */
+function forceLightColorScheme(svg: string): string {
+  return svg.replace(ADAPTIVE_COLOR_SCHEME, 'color-scheme: light');
+}
+
 /**
  * Gets a local URL that displays an SVG file of the repository as an image, because GitHub does
  * not serve raw files with the image content type
@@ -213,7 +226,7 @@ export function fetchSvgUrl(path: string): Promise<string> {
     return existing;
   }
   const request = fetchFileText(path)
-    .then((text) => URL.createObjectURL(new Blob([text], { type: 'image/svg+xml' })))
+    .then((text) => URL.createObjectURL(new Blob([forceLightColorScheme(text)], { type: 'image/svg+xml' })))
     .catch((error: unknown) => {
       svgUrlRequests.delete(path);
       throw error;
