@@ -26,7 +26,7 @@ const DIAGRAM_TITLES: [RegExp, string][] = [
   [/c4-1-context/i, 'C4 · Contexto'],
   [/c4-2-containers/i, 'C4 · Contenedores'],
   [/c4-3-components/i, 'C4 · Componentes'],
-  [/classes/i, 'Diagrama de clases'],
+  [/classes/i, 'C4 · Código'],
   [/er-physical/i, 'Modelo de datos físico'],
   [/(^|-)er(\.|-)/i, 'Modelo entidad-relación'],
   [/deployment|infrastructure/i, 'Despliegue e infraestructura'],
