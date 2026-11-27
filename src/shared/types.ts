@@ -11,7 +11,6 @@ export interface ServiceInfo {
   code: string;
   name: string;
   folder: string;
-  repository: string;
   tagline: string;
   summary: string;
   highlights: string[];

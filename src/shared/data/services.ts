@@ -7,7 +7,6 @@ export const SERVICES: ServiceInfo[] = [
     code: 'GW',
     name: 'API Gateway',
     folder: 'api-gateway',
-    repository: 'api-gateway',
     tagline: 'La puerta de entrada única y segura a todo el sistema.',
     summary:
       'Recibe todas las peticiones de la aplicación web y de los microservicios, comprueba que quien llama tenga una sesión válida y dirige cada solicitud al servicio correcto. Centraliza la seguridad para que ningún microservicio quede expuesto directamente a internet.',
@@ -25,7 +24,6 @@ export const SERVICES: ServiceInfo[] = [
     code: 'MS01',
     name: 'Identidad y acceso',
     folder: 'ms01-identity-and-access',
-    repository: 'ms01-identity-and-access',
     tagline: 'Cuentas, inicio de sesión, roles y permisos de toda la comunidad.',
     summary:
       'Gestiona el registro con correo institucional, el inicio y el cierre de sesión, el perfil de cada persona y la administración de usuarios. Define qué puede hacer cada rol mediante permisos que el resto del sistema respeta.',
@@ -43,7 +41,6 @@ export const SERVICES: ServiceInfo[] = [
     code: 'MS02',
     name: 'Campus y seguridad',
     folder: 'ms02-campus-and-security',
-    repository: 'ms02-campus-and-security',
     tagline: 'El mapa del campus y las rutas para evacuarlo.',
     summary:
       'Representa el campus completo: edificios, pisos, espacios, salidas, escaleras, zonas seguras y puntos de encuentro. Calcula rutas de evacuación dentro de los edificios y hacia el exterior, y genera códigos QR que cualquier persona puede escanear para consultar la información sin iniciar sesión.',
@@ -61,7 +58,6 @@ export const SERVICES: ServiceInfo[] = [
     code: 'MS03',
     name: 'Alertas y emergencias',
     folder: 'ms03-alerts-and-emergencies',
-    repository: 'ms03-alerts-and-emergencies',
     tagline: 'Avisos oportunos para las personas correctas.',
     summary:
       'Permite crear, programar, activar y archivar alertas de emergencia y de simulacro. Notifica por correo a los destinatarios según el alcance de la alerta, y cada persona puede ver sus alertas en una bandeja y confirmar que las recibió.',
@@ -79,7 +75,6 @@ export const SERVICES: ServiceInfo[] = [
     code: 'MS04',
     name: 'Evacuación y check-in',
     folder: 'ms04-evacuation-and-check-in',
-    repository: 'ms04-evacuation-and-check-in',
     tagline: 'Saber en tiempo real quién está a salvo.',
     summary:
       'Durante un simulacro o una emergencia, cada persona reporta su estado: a salvo, evacuando, requiere asistencia o fuera del campus. El sistema consolida esos reportes por punto de encuentro, identifica a quienes aún no reportan y envía las solicitudes de ayuda a los brigadistas.',
@@ -97,7 +92,6 @@ export const SERVICES: ServiceInfo[] = [
     code: 'MS05',
     name: 'Brigadistas e incidentes',
     folder: 'ms05-brigades-and-incidents',
-    repository: 'ms05-brigades-and-incidents',
     tagline: 'Organizar la respuesta en el terreno.',
     summary:
       'Activa a los brigadistas y los asigna a edificios, zonas seguras y puntos de encuentro. Registra los incidentes y las solicitudes de asistencia y sigue su atención de principio a fin: reportado, asignado, en atención, resuelto y cerrado.',
@@ -115,7 +109,6 @@ export const SERVICES: ServiceInfo[] = [
     code: 'MS06',
     name: 'Eventos y simulacros',
     folder: 'ms06-events',
-    repository: 'ms06-drills',
     tagline: 'Planear, ejecutar y evaluar cada simulacro.',
     summary:
       'Permite crear eventos reales y simulacros, definir su alcance (edificios y zonas), sus participantes y sus responsables, programarlos y seguirlos en vivo. Al finalizar entrega una evaluación con los resultados del evento.',
@@ -133,7 +126,6 @@ export const SERVICES: ServiceInfo[] = [
     code: 'MS07',
     name: 'Formación y asistente IA',
     folder: 'ms07-training-and-ai-assistant',
-    repository: 'ms07-training-and-ai-assistant',
     tagline: 'Aprender a actuar antes de que ocurra.',
     summary:
       'Ofrece contenidos de formación preventiva organizados por categorías, evaluaciones cortas y el seguimiento del progreso de cada persona. Incluye el Tutor CampusSeguro, un asistente de inteligencia artificial que resuelve dudas de quien se está formando.',
@@ -151,7 +143,6 @@ export const SERVICES: ServiceInfo[] = [
     code: 'MS08',
     name: 'Analítica y auditoría',
     folder: 'ms08-analytics-and-audit',
-    repository: 'ms08-analytics-and-audit',
     tagline: 'Cada acción queda registrada y medida.',
     summary:
       'Recibe de los demás servicios un registro de cada acción relevante y permite consultarlo con filtros. Calcula los indicadores de cada evento o simulacro, compara eventos entre sí y analiza incidentes, asistencia y tiempos de respuesta por edificio o zona.',

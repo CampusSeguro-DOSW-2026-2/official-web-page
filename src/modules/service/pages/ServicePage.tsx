@@ -5,7 +5,7 @@ import { Icon } from '../../../shared/components/Icons';
 import { StatusMessage } from '../../../shared/components/StatusMessage';
 import { SERVICES } from '../../../shared/data/services';
 import { useDocumentationTree } from '../../../shared/hooks/useDocumentationTree';
-import { blobUrl, folderUrl, ORGANIZATION_URL } from '../../../shared/services/github';
+import { blobUrl, folderUrl } from '../../../shared/services/github';
 import { serviceHref } from '../../../shared/services/router';
 import type { ServiceInfo } from '../../../shared/types';
 import {
@@ -98,10 +98,6 @@ export function ServicePage({ service, tab, documentPath, anchor }: ServicePageP
           <h1>{service.name}</h1>
           <p>{service.tagline}</p>
           <div className="service-links">
-            <a className="chip-button chip-light" href={`${ORGANIZATION_URL}/${service.repository}`} target="_blank" rel="noreferrer">
-              <Icon name="github" />
-              Código fuente
-            </a>
             <a className="chip-button chip-light" href={folderUrl(service.folder)} target="_blank" rel="noreferrer">
               <Icon name="file" />
               Documentación en GitHub
