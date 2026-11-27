@@ -319,6 +319,123 @@
   font-family: var(--font-body);
 }
 
+/* Swagger UI lays out tags and operations in rows that never wrap; on narrow screens the description takes the
+   width and the tag name or the path is squeezed into a column of a few pixels */
+@media (max-width: 700px) {
+  .api-toolbar {
+    padding: 16px;
+  }
+
+  .api-toolbar-actions {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .api-toolbar select {
+    flex: 1 1 100%;
+  }
+
+  .swagger-host .swagger-ui .wrapper {
+    padding: 0 12px;
+  }
+
+  .swagger-host .swagger-ui .info {
+    margin: 20px 0;
+  }
+
+  .swagger-host .swagger-ui .info .title {
+    font-size: 24px;
+    overflow-wrap: anywhere;
+  }
+
+  .swagger-host .swagger-ui .info .description,
+  .swagger-host .swagger-ui .markdown {
+    overflow-wrap: anywhere;
+  }
+
+  .swagger-host .swagger-ui .filter-container .operation-filter-input {
+    width: 100%;
+  }
+
+  .swagger-host .swagger-ui .opblock-tag {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 10px 4px;
+    font-size: 18px;
+  }
+
+  .swagger-host .swagger-ui .opblock-tag > a,
+  .swagger-host .swagger-ui .opblock-tag .nostyle {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .swagger-host .swagger-ui .opblock-tag small {
+    flex: 1 1 100%;
+    order: 3;
+    padding: 6px 0 0;
+    overflow-wrap: anywhere;
+  }
+
+  .swagger-host .swagger-ui .opblock .opblock-summary {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .swagger-host .swagger-ui .opblock .opblock-summary-control {
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .swagger-host .swagger-ui .opblock .opblock-summary-method {
+    min-width: 64px;
+  }
+
+  .swagger-host .swagger-ui .opblock .opblock-summary-path-description-wrapper {
+    flex: 1 1 100%;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .swagger-host .swagger-ui .opblock .opblock-summary-path,
+  .swagger-host .swagger-ui .opblock .opblock-summary-description {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .swagger-host .swagger-ui .opblock .opblock-section-header {
+    flex-wrap: wrap;
+    padding: 8px 12px;
+  }
+
+  .swagger-host .swagger-ui .opblock-body,
+  .swagger-host .swagger-ui .table-container,
+  .swagger-host .swagger-ui .responses-inner {
+    overflow-x: auto;
+  }
+
+  .swagger-host .swagger-ui .table-container,
+  .swagger-host .swagger-ui .responses-inner {
+    padding: 12px;
+  }
+
+  .swagger-host .swagger-ui table tbody tr td:first-of-type,
+  .swagger-host .swagger-ui .parameters-col_name {
+    width: auto;
+    min-width: 110px;
+  }
+
+  .swagger-host .swagger-ui .model-box {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
 /* ===== Downloads and pager ===== */
 .downloads-only p {
   margin-bottom: 16px;
