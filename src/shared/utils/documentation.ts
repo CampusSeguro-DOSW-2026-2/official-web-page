@@ -134,6 +134,51 @@ export function isApiSpec(path: string): boolean {
   return /(^|\/)api\/[^/]+\.ya?ml$/i.test(path);
 }
 
+const HTTP_METHODS = ['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace'];
+
+/**
+ * Counts the operations (endpoints) declared in the paths section of an OpenAPI contract written in YAML
+ * @param text content of the contract
+ * @returns the number of HTTP operations of the contract
+ */
+export function countOperations(text: string): number {
+  let inPaths = false;
+  let pathIndent = -1;
+  let operationIndent = -1;
+  let count = 0;
+  for (const line of text.split(/\r?\n/)) {
+    const match = /^( *)(?:'([^']+)'|"([^"]+)"|([^\s'"#][^:#]*?)):(?:\s|$)/.exec(line);
+    if (!match) {
+      continue;
+    }
+    const indent = match[1].length;
+    const key = match[2] ?? match[3] ?? match[4];
+    if (indent === 0) {
+      inPaths = key === 'paths';
+      pathIndent = -1;
+      operationIndent = -1;
+      continue;
+    }
+    if (!inPaths) {
+      continue;
+    }
+    if (pathIndent < 0 && key.startsWith('/')) {
+      pathIndent = indent;
+    }
+    if (indent <= pathIndent) {
+      operationIndent = -1;
+      continue;
+    }
+    if (operationIndent < 0) {
+      operationIndent = indent;
+    }
+    if (indent === operationIndent && HTTP_METHODS.includes(key)) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
 /**
  * Tells whether a path is a file that can only be downloaded
  * @param path file path

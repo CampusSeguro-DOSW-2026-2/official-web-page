@@ -67,7 +67,7 @@ const PRINCIPLES: { icon: IconName; title: string; text: string }[] = [
 ];
 
 /**
- * How the system is built: a map of its parts, the path of a request, its principles and the live
+ * How the system is built: its main figures, a map of its parts, the path of a request, its principles and the live
  * architecture diagrams
  * @param props files of the documentation repository
  * @returns the architecture section
@@ -87,8 +87,31 @@ export function ArchitectureSection({ tree }: ArchitectureSectionProps) {
           clara, que se comunican a través de una única puerta de entrada.
         </SectionHeading>
 
+        <div className="arch-figures">
+          <div className="arch-figure">
+            <strong>{microservices.length}</strong>
+            <div>
+              <h3>Microservicios</h3>
+              <p>
+                Cada uno resuelve una parte del problema, tiene su propia base de datos y se despliega por separado,
+                de modo que puede evolucionar sin afectar a los demás.
+              </p>
+            </div>
+          </div>
+          <div className="arch-figure">
+            <strong>1</strong>
+            <div>
+              <h3>API Gateway</h3>
+              <p>
+                Es el único punto de acceso al sistema: por él pasan las peticiones de la aplicación web y también las
+                llamadas entre microservicios. Ningún servicio queda expuesto directamente a internet.
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="architecture">
-          <div className="arch-map" role="img" aria-label="Mapa de la arquitectura: comunidad, aplicación web, API Gateway y ocho microservicios con su base de datos">
+          <div className="arch-map" role="img" aria-label={`Mapa de la arquitectura: comunidad, aplicación web, API Gateway y ${microservices.length} microservicios con su base de datos; las llamadas entre microservicios también pasan por el API Gateway`}>
             <div className="arch-layer">
               <span className="arch-node arch-node-soft">
                 <Icon name="users" />
@@ -124,6 +147,16 @@ export function ArchitectureSection({ tree }: ArchitectureSectionProps) {
                 </a>
               ))}
             </div>
+            <p className="arch-internal">
+              <span className="arch-internal-route" aria-hidden="true">
+                MS
+                <Icon name="arrow-right" />
+                <span className="arch-internal-gateway">GW</span>
+                <Icon name="arrow-right" />
+                MS
+              </span>
+              Las llamadas entre microservicios también pasan por el Gateway, que identifica al servicio que llama
+            </p>
             <p className="arch-external">
               Servicios externos: correo electrónico, modelo de lenguaje y OpenStreetMap
             </p>

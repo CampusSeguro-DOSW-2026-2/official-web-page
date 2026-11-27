@@ -34,7 +34,7 @@ export function Home({ section }: HomeProps) {
 
   return (
     <>
-      <HeroSection tree={tree} />
+      <HeroSection />
       <FeaturesSection />
       <ArchitectureSection tree={tree} />
       <TechnologySection />

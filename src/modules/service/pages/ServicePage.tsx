@@ -48,7 +48,6 @@ export function ServicePage({ service, tab, documentPath, anchor }: ServicePageP
   const specs = files.filter(isApiSpec).sort();
   const downloads = files.filter(isDownload).sort();
 
-  const counts = { documents: documents.length + downloads.length, diagrams: diagrams.length, specs: specs.length };
   const index = SERVICES.findIndex((item) => item.slug === service.slug);
   const previous = SERVICES[(index - 1 + SERVICES.length) % SERVICES.length];
   const next = SERVICES[(index + 1) % SERVICES.length];
@@ -58,7 +57,16 @@ export function ServicePage({ service, tab, documentPath, anchor }: ServicePageP
     activeTab = 'resumen';
   }
 
-  let content = <ServiceOverview service={service} counts={counts} ready={tree.status === 'ready'} />;
+  let content = (
+    <ServiceOverview
+      service={service}
+      documents={documents}
+      downloads={downloads}
+      diagrams={diagrams}
+      specs={specs}
+      ready={tree.status === 'ready'}
+    />
+  );
   if (activeTab !== 'resumen') {
     if (tree.status === 'loading') {
       content = <StatusMessage kind="loading">Consultando el repositorio de documentación…</StatusMessage>;
