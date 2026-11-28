@@ -14,6 +14,7 @@ const DOCUMENT_TITLES: Record<string, string> = {
   '3_data-model.md': 'Modelo de datos',
   'contracts.md': 'Contratos',
   'quality-and-tests.md': 'Calidad y pruebas',
+  'security.md': 'Seguridad',
   'integration-guide.md': 'Guía de integración',
   'jwt-spec.md': 'Especificación del JWT',
   'standards.md': 'Estándares de integración',
@@ -68,13 +69,7 @@ function humanize(name: string): string {
  */
 export function documentTitle(path: string): string {
   const name = fileName(path);
-  if (/^requerimientos/i.test(name) || /^requirements/i.test(name)) {
-    return 'Requerimientos';
-  }
-  if (/^backlog/i.test(name)) {
-    return 'Backlog';
-  }
-  if (name === 'README.md' && /\/diagra(m|ma)s\//i.test(path)) {
+  if (name === 'README.md' && /\/diagrams\//i.test(path)) {
     return 'Diagramas: cómo verlos';
   }
   const known = DOCUMENT_TITLES[name];
@@ -122,16 +117,16 @@ export function isImage(path: string): boolean {
  * @returns true for images inside a diagrams folder
  */
 export function isDiagram(path: string): boolean {
-  return isImage(path) && /(^|\/)diagra(m|ma)s\//i.test(path);
+  return isImage(path) && /(^|\/)diagrams\//i.test(path);
 }
 
 /**
  * Tells whether a path is an OpenAPI contract
  * @param path file path
- * @returns true for YAML files inside an api folder
+ * @returns true for the api/openapi.yml contract of a service
  */
 export function isApiSpec(path: string): boolean {
-  return /(^|\/)api\/[^/]+\.ya?ml$/i.test(path);
+  return /(^|\/)api\/openapi\.yml$/i.test(path);
 }
 
 const HTTP_METHODS = ['get', 'put', 'post', 'delete', 'options', 'head', 'patch', 'trace'];

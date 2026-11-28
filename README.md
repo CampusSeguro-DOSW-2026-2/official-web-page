@@ -20,8 +20,8 @@ En las páginas de servicio:
 
 * **Resumen:** descripción del servicio, sus funcionalidades principales y sus tecnologías.
 * **Documentos:** los archivos Markdown de la carpeta del servicio, con índice lateral. Los enlaces entre documentos se abren dentro del sitio y los archivos PDF o Word se ofrecen para descargar.
-* **Diagramas:** las imágenes (`.svg`, `.png`, `.jpg`) de la carpeta `diagrams/` o `diagramas/` del servicio, con un visor a pantalla completa. Los diagramas que solo existen en `.puml` o `.drawio` no se muestran hasta que se exporten a `.svg`.
-* **API:** Swagger UI interactivo sobre el contrato OpenAPI de la carpeta `api/` del servicio. Las peticiones de prueba están desactivadas, porque la API real solo acepta llamadas autenticadas a través del API Gateway.
+* **Diagramas:** las imágenes (`.svg`, `.png`, `.jpg`) de la carpeta `diagrams/` del servicio, con un visor a pantalla completa. Los diagramas que solo existen en `.puml` o `.drawio` no se muestran hasta que se exporten a `.svg`.
+* **API:** Swagger UI interactivo sobre el contrato OpenAPI del servicio (`api/openapi.yml`). Las peticiones de prueba están desactivadas, porque la API real solo acepta llamadas autenticadas a través del API Gateway.
 
 ## Documentación en vivo
 

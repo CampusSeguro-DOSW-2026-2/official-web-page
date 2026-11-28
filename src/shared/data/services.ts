@@ -108,7 +108,7 @@ export const SERVICES: ServiceInfo[] = [
     slug: 'ms06',
     code: 'MS06',
     name: 'Eventos y simulacros',
-    folder: 'ms06-events',
+    folder: 'ms06-drills',
     tagline: 'Planear, ejecutar y evaluar cada simulacro.',
     summary:
       'Permite crear eventos reales y simulacros, definir su alcance (edificios y zonas), sus participantes y sus responsables, programarlos y seguirlos en vivo. Al finalizar entrega una evaluación con los resultados del evento.',
